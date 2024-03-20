@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الآلة الحاسبة</title>
+<link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<h2>الآلة الحاسبة</h2>
+
+<div>
+    <label for="a">أدخل قيمة للأدوية المصروفة:</label>
+    <input type="number" id="a">
+</div>
+
+<div>
+    <label for="b">أدخل قيمة للأدوية الموجودة:</label>
+    <input type="number" id="b">
+</div>
+
+<div>
+    <label for="c">أدخل قيمة لليدجر:</label>
+    <input type="number" id="c">
+</div>
+
+<div id="actions">
+    <button onclick="calculate()">حساب</button>
+    <button onclick="clearTable()">مسح الجدول</button>
+    <button onclick="saveAsPDF()">حفظ كملف PDF</button>
+</div>
+
+<p id="result"></p>
+
+<table id="resultsTable">
+    <thead>
+        <tr>
+            <th>الاسم</th>
+            <th>الأدوية المصروفة</th>
+            <th>الأدوية الموجودة</th>
+            <th>اليدجر</th>
+            <th>النتيجة</th>
+            <th>تحرير</th>
+        </tr>
+    </thead>
+    <tbody id="tableBody">
+    </tbody>
+</table>
+
+<script src="index.js"></script>
+
+</body>
+</html>
