@@ -142,16 +142,20 @@ document.getElementById('c').addEventListener('input', function() {
 });
 
 function saveAsPDF() {
-    // Hide buttons and other unnecessary elements before printing
-    var buttons = document.getElementById('actions');
-    buttons.style.display = 'none';
-    var result = document.getElementById('result');
-    result.style.display = 'none';
-
-    // Trigger browser print dialog
-    window.print();
-
-    // Show hidden elements after printing
-    buttons.style.display = 'block';
-    result.style.display = 'block';
+    // Clone the table element
+    var tableClone = document.getElementById("resultsTable").cloneNode(true);
+    
+    // Create a new window with the cloned table
+    var win = window.open('', '_blank');
+    win.document.write('<html><head><title>Table PDF</title></head><body>');
+    win.document.write('<style>table {border-collapse: collapse; width: 100%;} th, td {border: 1px solid #dddddd; text-align: left; padding: 8px;} th {background-color: #f2f2f2;}</style>');
+    win.document.write('<h2>Table</h2>');
+    win.document.write(tableClone.outerHTML);
+    win.document.write('</body></html>');
+    
+    // Close the document
+    win.document.close();
+    
+    // Print the window
+    win.print();
 }
